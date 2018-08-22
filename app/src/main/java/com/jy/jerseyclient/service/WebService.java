@@ -20,10 +20,10 @@ import java.util.Map;
  */
 public class WebService {
     private final static String TAG = "WebService";
-    private static final String WEB_ROOT = "http://60.205.214.67:8080/phone/";   //http://192.168.31.150:8080/JerseyServer/rest/restService/
+    private static final String WEB_ROOT = "http://139.199.110.20:8080/phone/";   //http://192.168.31.150:8080/JerseyServer/rest/restService/
     private static final String LOGIN = "login";
     private static final String GET_ALL_USERS = "getAllUsers";
-    private static final String SAVE_MESSAGE = "saveTxt";
+    private static final String SAVE_MESSAGE = "saveTxt";//saveTxtMiao
 
     public static Response login(String username, String password) {
         String path = WEB_ROOT + LOGIN;
@@ -65,6 +65,7 @@ public class WebService {
         Map<String, String> map = new HashMap<>();
         map.put("fromphone", fromphone);
         map.put("message", message);
+
         InputStream is = connection(path, map);
         if (is != null) {
             String content = getStringFromIS(is);
